@@ -1,6 +1,6 @@
 #!/bin/bash
 
- Ce script permet de mettre à jour des paramètres dans vscode. Quelques exemples sont présentés.
+# Ce script permet de mettre à jour des paramètres dans vscode. Quelques exemples sont présentés.
 # Les paramètres par défaut de vscode : https://github.com/InseeFrLab/images-datascience/blob/main/vscode/settings/User.json 
 
 # Path to the VSCode settings.json file
