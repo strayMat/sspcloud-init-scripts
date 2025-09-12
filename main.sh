@@ -61,6 +61,8 @@ EOF
 
 source ~/.bashrc
 
+# use ipdb as default debugger, pre-requirement: installed ipdb in working venv
+PYTHONBREAKPOINT=ipdb.set_trace
 
 # # Installe via uv les packages contenus dans le fichier pyproject.tml
 # situé à la racine du projet gitlab cloné au lancement du service
@@ -71,7 +73,6 @@ source ~/.bashrc
 PROJECT_DIR=$(basename "$(ls -d /home/onyxia/work/*/ | head -n 1)")
 
 # Pour donner plus de chance au uv sync qui doit passer à travers le proxy de LS3
-export UV_CONCURRENT_DOWNLOADS=1
-
+# export UV_CONCURRENT_DOWNLOADS=1
 cd "/home/onyxia/work/${PROJECT_DIR}"
 uv sync
