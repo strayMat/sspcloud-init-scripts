@@ -72,8 +72,10 @@ echo '[
     }
 ]' > "$HOME/.local/share/code-server/User/keybindings.json"
 
-# Add some omyzsh git aliases to .bashrc 
+# Add aliases to .bashrc
 cat << 'EOF' >> ~/.bashrc
+# Some omyzsh git aliases 
+# aliases for git (from omyzsh)
 alias g='git'
 alias gst='git status'
 alias ga='git add'
@@ -92,12 +94,31 @@ alias glog='git log --oneline --decorate --graph'
 alias glgm='git log --graph --max-count=10'
 alias gp='git push'
 alias gpf='git push -f'
+alias gl='git pull'
+alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
+alias gbg='LANG=C git branch -vv | grep ": gone\]"'
+alias gco='git checkout'
+alias gcor='git checkout --recurse-submodules'
+alias gcb='git checkout -b'
+alias gcB='git checkout -B'
+alias gcd='git checkout $(git_develop_branch)'
+alias gcm='git checkout $(git_main_branch)'
+alias gcp='git cherry-pick'
+alias gcpa='git cherry-pick --abort'
+alias gcpc='git cherry-pick --continue'
+alias gclean='git clean --interactive -d'
+alias gcl='git clone --recurse-submodules'
+alias gclf='git clone --recursive --shallow-submodules --filter=blob:none --also-filter-submodules'
+
+# cp without overwrite the cache of uv (which is loaded by default from s3 into working dir)
+alias saveuv='mc mirror /home/onyxia/work/.cache/uv/ "s3/travail/user-ffgkdk/insee/uv/"'
 EOF
+
 
 source ~/.bashrc
 
 # use ipdb as default debugger, pre-requirement: installed ipdb in working venv
-PYTHONBREAKPOINT=ipdb.set_trace
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 # # Installe via uv les packages contenus dans le fichier pyproject.tml
 # situé à la racine du projet gitlab cloné au lancement du service
