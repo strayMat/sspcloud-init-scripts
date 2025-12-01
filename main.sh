@@ -30,8 +30,6 @@ jq '. + {
     "apiKeyEnv": "SSP_API_KEY"
 }' "$SETTINGS_FILE" > "$SETTINGS_FILE.tmp" && mv "$SETTINGS_FILE.tmp" "$SETTINGS_FILE"
 
-#!/bin/sh
-
 # This init script install various useful VScode extensions
 # NB : only extensions from the Open VSX Registry (https://open-vsx.org/) can be installed on code-server
 # Expected parameters : None
