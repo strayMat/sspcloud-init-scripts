@@ -23,11 +23,12 @@ jq '. + {
     "files.insertFinalNewline": true,  # Ensure files end with a newline
     # Roo‑Cline – LLM model selector
     "roo-cline.vsCodeLmModelSelector": {
-    "endpoint": "https://llm.lab.sspcloud.fr/api",
-    "defaultModel": "gpt-oss:120b",
-    # FIXME: Does not seems to be an env variable for this right now on ssp cloud 
-    # need to copy paste the key in the services config
-    "apiKeyEnv": "SSP_API_KEY"
+      "endpoint": "https://llm.lab.sspcloud.fr/api",
+      "defaultModel": "gpt-oss:120b",
+      # FIXME: Does not seems to be an env variable for this right now on ssp cloud 
+      # need to copy paste the key in the services config
+      "apiKeyEnv": "SSP_API_KEY"
+    }
 }' "$SETTINGS_FILE" > "$SETTINGS_FILE.tmp" && mv "$SETTINGS_FILE.tmp" "$SETTINGS_FILE"
 
 # This init script install various useful VScode extensions
