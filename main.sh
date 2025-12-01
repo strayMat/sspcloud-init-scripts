@@ -21,6 +21,13 @@ jq '. + {
     "editor.rulers": [80, 100],  # Add specific vertical rulers
     "files.trimTrailingWhitespace": true,  # Automatically trim trailing whitespace
     "files.insertFinalNewline": true,  # Ensure files end with a newline
+    # Roo‑Cline – LLM model selector
+    "roo-cline.vsCodeLmModelSelector": {
+    "endpoint": "https://llm.lab.sspcloud.fr/api",
+    "defaultModel": "gpt-oss:120b",
+    # FIXME: Does not seems to be an env variable for this right now on ssp cloud 
+    # need to copy paste the key in the services config
+    "apiKeyEnv": "SSP_API_KEY"
 }' "$SETTINGS_FILE" > "$SETTINGS_FILE.tmp" && mv "$SETTINGS_FILE.tmp" "$SETTINGS_FILE"
 
 #!/bin/sh
