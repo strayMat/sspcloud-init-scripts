@@ -13,7 +13,7 @@ if [ ! -f "$SETTINGS_FILE" ]; then
     echo "{}" > "$SETTINGS_FILE"  # Initialize with an empty JSON object
 fi
 # Create a roo config file (maybe too many things into it)
-ROO_CONFIG_FILE="/home/onyxia/work/roo_code_model_selector_config.json"
+ROO_CONFIG_FILE="${HOME}/.local/share/code-server/User/roo_code_model_selector_config.json"
 mkdir -p "$(dirname "$ROO_CONFIG_FILE")"
 echo "{}" > "$ROO_CONFIG_FILE"  # Initialize with an empty JSON object
 jq '. + {
@@ -28,7 +28,7 @@ jq '. + {
     "files.trimTrailingWhitespace": true,  # Automatically trim trailing whitespace
     "files.insertFinalNewline": true,  # Ensure files end with a newline
     # Roo‑Cline – LLM model selector
-    "roo-cline.autoImportSettingsPath": "/home/onyxia/work/roo_code_model_selector_config.json",
+    "roo-cline.autoImportSettingsPath": "/home/onyxia/.local/share/code-server/User/roo_code_model_selector_config.json",
 }' "$SETTINGS_FILE" > "$SETTINGS_FILE.tmp" && mv "$SETTINGS_FILE.tmp" "$SETTINGS_FILE"
 
 # This init script install various useful VScode extensions
